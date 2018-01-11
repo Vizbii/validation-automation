@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Validation Cleaner Tool</title>
+    <script type="text/javascript" src="papaparse.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+  </head>
+    <body>
+        <label class="control-label">Files:</label>
+
+        <span class="btn btn-default btn-file">Browse
+            <input id="file-input" type="file" accept="text/comma-separated-values" runat="server" multiple>
+        </span>
+
+        <br />
+        <br />
+
+        <p id="jsonText"></p>
+
+        <script type="text/javascript">
+            var fileInput = document.getElementById('file-input');
+            fileInput.addEventListener('change', function(event)
+            {
+                var input = event.target;
+                console.log(input.files);
+                if (input.files.length > 0)
+                runPapaParse(input.files);
+            });
+        </script>
+    </body>
+</html>
